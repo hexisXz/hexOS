@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+
+grep modm .xmonad/xmonad.hs | dmenu -l 30
