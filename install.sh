@@ -1,29 +1,29 @@
 #!/bin/bash
 
-prompt() {
-	read e
+read e
 
-	echo "--------------------------------------"
-	echo "- do you want to install hexOS (y/n) -"
-        echo "--------------------------------------"
+echo "--------------------------------------"
+echo "- do you want to install hexOS (y/n) -"
+echo "--------------------------------------"
 
-	if [ "$e" == "y" ]; then
-		read g
-		echo "WARNING you need xmonad, xmobar and alacritty for this to work if you dont have alacritty or xmonad this will install it for you however it will not install xmobar so if you dont have xmobar exit out of this and install it."
-		echo "enter (n) to exit and (y) to proceed"
-		if [ "$g" == "n" ]; then
-			exit 1
-		fi
-		
-		if [ "$g" == "y" ]; then
-			setup
-		fi
-	fi
+if [ "$e" == "y" ]; then
+	read g
+	echo "WARNING you need xmonad, xmobar and alacritty for this to work if you dont have alacritty or xmonad this will install it for you however it will not install xmobar so if you dont have xmobar exit out of this and install it."
+	echo "enter (n) to exit and (y) to proceed"
 
-	if [ "$e" == "n" ]; then
+	if [ "$g" == "n" ]; then
 		exit 1
 	fi
-}
+		
+	if [ "$g" == "y" ]; then
+		setup
+	fi
+fi
+
+if [ "$e" == "n" ]; then
+	exit 1
+fi
+
 
 
 
@@ -69,27 +69,28 @@ setup() {
 
 
 
-config() {
-	echo "---------------------"
-	echo "- configuring hexOS -"
-	echo "---------------------"
+echo "---------------------"
+echo "- configuring hexOS -"
+echo "---------------------"
 	
 	
-	echo -n "this will replace your .bashrc with the hexOS .bashrc you need hexOS .bashrc for hexOS to work do you wish to proceed (y/n)"
-        read -r que
+echo -n "this will replace your .bashrc with the hexOS .bashrc you need hexOS .bashrc for hexOS to work do you wish to proceed (y/n)"
+read -r que
 
-	if [ "$que" == "y" ]; then
-		sleep 1
-		mv ~/hexOS/bash-config/.bashrc ~/
+if [ "$que" == "y" ]; then
+	sleep 1
+	mv ~/hexOS/bash-config/.bashrc ~/
 
-		echo "configuring compton"
-		mv ~/hexOS/compton/compton.conf ~/.config/
+	echo "configuring compton"
+	mv ~/hexOS/compton/compton.conf ~/.config/
 
-		echo "configuring alacritty"
-	        if ! command -v alacritty >/dev/null; then
-			sudo apt install alacritty && mkdir ~/.config/alacritty && mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty 
-		fi	
+	echo "configuring alacritty"
+
+	if ! command -v alacritty >/dev/null; then
+		sudo apt install alacritty && mkdir ~/.config/alacritty && mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty
 	fi
+
+    fi
 
 	if command -v alacritty >/dev/null; then
 		mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty
@@ -110,4 +111,5 @@ config() {
     at .bashrc to see all the aliases and thats all have fun with hexOS
     just logout and loginto xmonad."
 
-}
+	if [ "$que" == "n" ]; then
+		exit 1
