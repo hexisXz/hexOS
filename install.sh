@@ -1,37 +1,10 @@
 #!/bin/bash
 
-read e
-
-echo "--------------------------------------"
-echo "- do you want to install hexOS (y/n) -"
-echo "--------------------------------------"
-
-if [ "$e" == "y" ]; then
-	read g
-	echo "WARNING you need xmonad, xmobar and alacritty for this to work if you dont have alacritty or xmonad this will install it for you however it will not install xmobar so if you dont have xmobar exit out of this and install it."
-	echo "enter (n) to exit and (y) to proceed"
-
-	if [ "$g" == "n" ]; then
-		exit 1
-	fi
-		
-	if [ "$g" == "y" ]; then
-		setup
-	fi
-fi
-
-if [ "$e" == "n" ]; then
-	exit 1
-fi
-
-
-
-
 setup() {
 	echo "--------------"
 	echo "- installing -"
 	echo "--------------"
-        
+
 	sleep 1
 	
 	if ! command -v xmonad >/dev/null; then
@@ -65,6 +38,30 @@ setup() {
 
 }
 
+
+read e
+
+echo "--------------------------------------"
+echo "- do you want to install hexOS (y/n) -"
+echo "--------------------------------------"
+
+if [ "$e" == "y" ]; then
+	read g
+	echo "WARNING you need xmonad, xmobar and alacritty for this to work if you dont have alacritty or xmonad this will install it for you however it will not install xmobar so if you dont have xmobar exit out of this and install it."
+	echo "enter (n) to exit and (y) to proceed"
+
+	if [ "$g" == "n" ]; then
+		exit 1
+	fi
+		
+	if [ "$g" == "y" ]; then
+		setup
+	fi
+fi
+
+if [ "$e" == "n" ]; then
+	exit 1
+fi
 
 
 
@@ -113,3 +110,4 @@ if [ "$que" == "y" ]; then
 
 	if [ "$que" == "n" ]; then
 		exit 1
+	fi
