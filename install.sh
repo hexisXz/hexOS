@@ -47,23 +47,17 @@ echo "--------------------------------------"
 read e
 
 if [ "$e" == "y" ]; then
-	read g
 	echo "WARNING you need xmonad, xmobar and alacritty for this to work if you dont have alacritty or xmonad this will install it for you however it will not install xmobar so if you dont have xmobar exit out of this and install it."
 	echo "enter (n) to exit and (y) to proceed"
 
-	if [ "$g" == "n" ]; then
+	if [ "$e" == "n" ]; then
 		exit 1
 	fi
 		
-	if [ "$g" == "y" ]; then
+	if [ "$e" == "y" ]; then
 		setup
 	fi
 fi
-
-if [ "$e" == "n" ]; then
-	exit 1
-fi
-
 
 
 
