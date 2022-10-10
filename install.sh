@@ -77,21 +77,21 @@ if [ "$que" == "y" ]; then
 	echo "configuring compton"
 	mv ~/hexOS/compton/compton.conf ~/.config/
 
+    fi
+	
+        echo "finishing up"
+
 	echo "configuring alacritty"
 
 	if ! command -v alacritty >/dev/null; then
 		sudo apt install alacritty && mkdir ~/.config/alacritty && mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty
 	fi
 
-    fi
 
 	if command -v alacritty >/dev/null; then
 		mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty
 
 	fi
-
-
-	echo "finishing up"
 
 	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala-deb && sudo apt install exa
 
