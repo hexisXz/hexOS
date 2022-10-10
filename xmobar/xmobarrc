@@ -39,5 +39,5 @@ Config { font =  "xft:Ubuntu Mono:pixelsize=12:antialias=true:hinting=true"
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
-                    \{ <fc=#ee9a00>%date%</fc> | <fc=#c678dd>%EGPF%</fc> | <fc=#5af78e>%./xmobar-sound%</fc> | <fc=#4d5b86>%acpi%</fc> | Linux "
+                    \{ <fc=#ee9a00>%date%</fc> | <fc=#c678dd>%EGPF%</fc> | <fc=#5af78e>%./xmobar-sound%</fc> | Linux "
        
