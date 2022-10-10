@@ -118,23 +118,14 @@ fi
 
 
 #### ALIASES ####
-alias pacup='sudo pacman -Syu'
-alias pacin='yay -S'
-alias pacrm='sudo pacman -Rsu'
+alias aptup='sudo nala update && sudo nala upgrade -yy'
+alias aptin='sudo nala install'
+alias aptrm='sudo nala remove'
 alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 alias ln='ln -i'
 alias ls='exa -al'
-alias hack_mode='hollywood'
-alias doomsync='~/.emacs.d/bin/doom sync'
-alias kl='killall'
-alias sc='source .bashrc'
-alias we='curl wttr.in'
-alias random='echo $RANDOM'
-alias gitc='git commit -m'
-alias gitpush='git push -u'
-
 
 
 # navigation
@@ -213,7 +204,6 @@ rst=$'[0m'
 inv=$'[7m'
 
 
-#neofetch --ascii /home/hexis/hex
 neofetch
 
 
