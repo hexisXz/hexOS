@@ -39,11 +39,12 @@ setup() {
 }
 
 
-read e
 
 echo "--------------------------------------"
 echo "- do you want to install hexOS (y/n) -"
 echo "--------------------------------------"
+
+read e
 
 if [ "$e" == "y" ]; then
 	read g
