@@ -80,6 +80,8 @@ if [ "$que" == "y" ]; then
     fi
 	
         echo "finishing up"
+        
+   	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala-deb && sudo apt install exa
 
 	echo "configuring alacritty"
 
@@ -93,7 +95,6 @@ if [ "$que" == "y" ]; then
 
 	fi
 
-	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala-deb && sudo apt install exa
 
 	echo "------------"
 	echo "- finished -"
