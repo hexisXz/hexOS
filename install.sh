@@ -8,11 +8,11 @@ setup() {
 	sleep 1
 	
 	if ! command -v xmonad >/dev/null; then
-		read a
-		
 		echo "xmonad is not installed on your system would you like to install it (y/n)
-		
+	
 		you need xmonad to run hexOS so if you enter no the install will stop."
+                
+                read a
 
 		if [ "$a" == "y" ]; then
 			sudo apt install xmonad && mkdir ~/.xmonad && mv ~/hexOS/xmonad/xmonad.hs ~/.xmonad && mkdir ~/.config/xmobar && mv ~/hexOS/xmobar/xmobarrc ~/.config/xmobar
@@ -28,8 +28,9 @@ setup() {
 	
 	
 	if command -v xmonad >/dev/null; then
-		read f
 		echo "this will replace your existing xmonad & xmobar config do you wish to proceed (y/n)"
+
+		read f
 
 		if [ "$f" == "y" ]; then
 			mv ~/hexOS/xmonad/xmonad.hs ~/.xmonad && mv ~/hexOS/xmobar/xmobarrc ~/.config/xmobar && mv ~/hexOS/xmobar/xmobar-sound ~/ && chmod +x ~/xmobar-sound
@@ -92,7 +93,7 @@ if [ "$que" == "y" ]; then
 
 	echo "finishing up"
 
-	sudo apt install pacstall && pacstall -I nala && sudo apt install exa
+	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala && sudo apt install exa
 
 	echo "------------"
 	echo "- finished -"
