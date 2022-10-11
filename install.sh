@@ -81,12 +81,12 @@ if [ "$que" == "y" ]; then
 	
         echo "finishing up"
         
-   	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala-deb && sudo apt install exa
+   	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala-deb && sudo apt install exa && sudo apt install nitrogen && sudo apt install compton
 
 	echo "configuring alacritty"
 
 	if ! command -v alacritty >/dev/null; then
-		sudo apt install alacritty && mkdir ~/.config/alacritty && mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty
+		mkdir ~/.config/alacritty && mv ~/hexOS/terminal/alacritty.yml ~/.config/alacritty
 	fi
 
 
