@@ -8,9 +8,9 @@ setup() {
 	sleep 1
 	
 	if ! command -v xmonad >/dev/null; then
-		echo "xmonad is not installed on your system would you like to install it (y/n)
+		echo "xmonad is not installed on your system would you like to install it (y/n)"
 	
-		you need xmonad to run hexOS so if you enter no the install will stop."
+		echo "you need xmonad to run hexOS so if you enter no the install will stop."
                 
                 read a
 
