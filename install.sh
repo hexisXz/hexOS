@@ -81,7 +81,7 @@ if [ "$que" == "y" ]; then
 	
         echo "finishing up"
         
-   	sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)" && pacstall -I nala-deb && sudo apt install exa && sudo apt install nitrogen && sudo apt install compton && pacstall -I alacritty
+   	git clone https://github.com/hexisXz/hexpmg.git && cd hexpmg && chmod +x install && ./install && hexpmg -i pacstall && sudo apt install exa && sudo apt install nitrogen && sudo apt install compton && pacstall -I alacritty
 
 	echo "configuring alacritty"
 
@@ -91,7 +91,7 @@ if [ "$que" == "y" ]; then
 	echo "- finished -"
 	echo "------------"
 
-	echo "to install a program just type pacstall -I <name of program>
+	echo "to install a program just type pacstall -I <name of program> or hexpmg -i <name of program> note hexpmg is still in beta.
     apt is still installed so you can use that, if you want to use apt just type aptin to install programs or just look
     at .bashrc to see all the aliases and thats all have fun with hexOS
     just logout and loginto xmonad."
