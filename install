@@ -1,0 +1,99 @@
+#!/bin/bash
+
+setup() {
+	echo "--------------"
+	echo "- installing -"
+	echo "--------------"
+
+	sleep 1
+	
+	if ! command -v xmonad >/dev/null; then
+		echo "xmonad is not installed on your system would you like to install it (y/n)"
+	
+                read a
+
+		if [ "$a" == "y" ]; then
+			git clone https://github.com/hexisXz/hexOS-source.git
+			sudo apt install xmonad xmobar && mkdir ~/.xmonad && mv ~/hexOS-source/src/xmonad.hs ~/.xmonad && mkdir ~/.config/xmobar && mv ~/hexOS-source/src/xmobarrc ~/.config/xmobar
+
+		fi
+
+		
+		if [[ "$a" == "n" ]]; then
+			exit 1
+		fi
+	fi
+	
+	
+	
+	if command -v xmonad >/dev/null; then
+		echo "this will replace your existing xmonad & xmobar config do you wish to proceed (y/n)"
+
+		read f
+
+		if [[ "$f" == "y" ]]; then
+                        git clone https://github.com/hexisXz/hexOS-source.git
+                        mkdir ~/.xmonad && mv ~/hexOS-source/src/xmonad.hs ~/.xmonad && mkdir ~/.config/xmobar && mv ~/hexOS-source/src/xmobarrc ~/.config/xmobar 
+                        
+		fi	
+	fi 	
+
+}
+
+
+
+echo "--------------------------------------"
+echo "- do you want to install hexOS (y/n) -"
+echo "--------------------------------------"
+
+read e
+
+if [[ "$e" == "y" ]]; then
+
+	if [[ "$e" == "n" ]]; then
+		exit 1
+	fi
+		
+	if [[ "$e" == "y" ]]; then
+		setup
+	fi
+fi
+
+
+
+echo "---------------------"
+echo "- configuring hexOS -"
+echo "---------------------"
+	
+	
+echo -n "this will replace your .bashrc with the hexOS .bashrc you need hexOS .bashrc for hexOS to work do you wish to proceed (y/n)"
+read -r que
+
+if [[ "$que" == "y" ]]; then
+	sleep 1
+	mv ~/hexOS-source/src/.bashrc ~/
+
+	echo "configuring picom"
+	mv ~/hexOS-source/src/picom.conf ~/.config/
+
+    fi
+	
+        echo "finishing up"
+        
+   	git clone https://github.com/hexisXz/hexpmg.git && cd hexpmg && chmod +x install && ./install && hexpmg -ilp picom && sudo apt install alacritty 
+
+	echo "configuring alacritty"
+
+	mkdir ~/.config/alacritty && mv ~/hexOS-source/src//alacritty.yml ~/.config/alacritty
+
+	echo "------------"
+	echo "- finished -"
+	echo "------------"
+
+	echo "to install a program just type hexpmg -i <name of program> note hexpmg is still in beta.
+    apt is still installed so you can use that too. WARNING: hexpmg is not a replacement for apt. hexpmg is only used to install the latest programs from source and it's not used to install every program. and thats all have fun with hexOS
+    just logout and loginto xmonad."
+
+	if [[ "$que" == "n" ]]; then
+		exit 1
+	fi
