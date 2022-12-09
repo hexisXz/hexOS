@@ -1,14 +1,25 @@
 #!/bin/bash
 
+
+# colors
+red='\033[0;31m'
+blue='\033[0;34m'
+green='\033[0;32m'
+purple='\033[0;35m'
+NC='\033[0m' # No Color
+
+
+
+
 setup() {
-	echo "--------------"
-	echo "- installing -"
-	echo "--------------"
+	echo -e "${green}--------------"
+	echo "           - installing -"
+	echo "           --------------${NC}"
 
 	sleep 1
 	
 	if ! command -v xmonad >/dev/null; then
-		echo "xmonad is not installed on your system would you like to install it (y/n)"
+		echo -e "${red}xmonad is not installed on your system would you like to install it (y/n)${NC}"
 	
                 read a
 
@@ -27,7 +38,7 @@ setup() {
 	
 	
 	if command -v xmonad >/dev/null; then
-		echo "this will replace your existing xmonad & xmobar config do you wish to proceed (y/n)"
+		echo -e "${red}this will replace your existing xmonad & xmobar config do you wish to proceed (y/n)${NC}"
 
 		read f
 
@@ -42,9 +53,9 @@ setup() {
 
 
 
-echo "--------------------------------------"
-echo "- do you want to install hexOS (y/n) -"
-echo "--------------------------------------"
+echo -e "${blue}--------------------------------------"
+echo "          - do you want to install hexOS (y/n) -"
+echo "          --------------------------------------${NC}"
 
 read e
 
@@ -61,39 +72,52 @@ fi
 
 
 
-echo "---------------------"
-echo "- configuring hexOS -"
-echo "---------------------"
+echo -e "${blue}---------------------"
+echo "          - configuring hexOS -"
+echo "          ---------------------${NC}"
 	
 	
-echo -n "this will replace your .bashrc with the hexOS .bashrc you need hexOS .bashrc for hexOS to work do you wish to proceed (y/n)"
+echo -n "${red}this will replace your .bashrc with the hexOS .bashrc you need hexOS .bashrc for hexOS to work do you wish to proceed (y/n)${NC}"
 read -r que
 
 if [[ "$que" == "y" ]]; then
 	sleep 1
 	mv ~/hexOS-source/src/.bashrc ~/
 
-	echo "configuring picom"
+	echo -e "${blue}configuring picom${NC}"
 	mv ~/hexOS-source/src/picom.conf ~/.config/
 
     fi
 	
-        echo "finishing up"
+        echo -e "${green}finishing up${NC}"
         
    	git clone https://github.com/hexisXz/hexpmg.git && cd hexpmg && chmod +x install && ./install && hexpmg -ilp picom && sudo apt install alacritty 
 
-	echo "configuring alacritty"
+	echo -e "${blue}configuring alacritty${NC}"
 
+	
 	mkdir ~/.config/alacritty && mv ~/hexOS-source/src//alacritty.yml ~/.config/alacritty
 
-	echo "------------"
-	echo "- finished -"
-	echo "------------"
 
-	echo "to install a program just type hexpmg -i <name of program> note hexpmg is still in beta.
-    apt is still installed so you can use that too. WARNING: hexpmg is not a replacement for apt. hexpmg is only used to install the latest programs from source and it's not used to install every program. and thats all have fun with hexOS
-    just logout and loginto xmonad."
+	echo -e "${green}------------"
+	echo "           - finished -"
+	echo "           ------------${NC}"
 
-	if [[ "$que" == "n" ]]; then
+
+
+
+echo -e "${blue}to install a program just type hexpmg -i <name of program> ${red}note hexpmg is still in beta.${NC}"
+    
+
+
+echo -e "${blue}apt is still installed so you can use that too. ${red}WARNING: hexpmg is not a replacement for apt${NC}. ${blue}hexpmg is only used to install the latest programs from source and it's not used to install every program. and thats all have fun with hexOS${NC}"
+    
+
+
+echo -e "${blue}just logout and loginto xmonad.${NC}"
+
+
+
+if [[ "$que" == "n" ]]; then
 		exit 1
 	fi
