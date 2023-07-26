@@ -16,31 +16,31 @@ git clone https://github.com/hexisXz/hexOS.git && cd hexOS && chmod +x install &
 ### main keybids
 
 ```
-**Mod-Shift-q quit**
+Mod-Shift-q quit
 
-**Mod-Shift-r reload**
+Mod-Shift-r reload
 
-**Mod-c close**
+Mod-c close
 
-**Mod-Return spawn (terminal)**
+Mod-Return spawn (terminal)
 
-**Mod-F6 spawn (volume up)**
+Mod-F6 spawn (volume up)
 
-**Mod-F5 spawn (volume down)**
+Mod-F5 spawn (volume down)
 
-**Mod-F8 spawn (backlight up)**
+Mod-F8 spawn (backlight up)
 
-**Mod-F7 spawn (backlight down)**
+Mod-F7 spawn (backlight down)
 
-**Mod-F4 spawn (mute/unmute mic)**
+Mod-F4 spawn (mute/unmute mic)
 
-**Mod-q spawn (powermenu)**
+Mod-q spawn (powermenu)
 
-**Mod-w spawn (wifi menu)**
+Mod-w spawn (wifi menu)
 
-**Mod-v spawn (wallpaper picker)**
+Mod-v spawn (wallpaper picker)
 
-**Mod-p spawn (launcher)**
+Mod-p spawn (launcher)
 
 ```
 
@@ -49,6 +49,6 @@ git clone https://github.com/hexisXz/hexOS.git && cd hexOS && chmod +x install &
 
 ```
 
-**Mod-b spawn (browser)**
+Mod-b spawn (browser)
 
 ```
