@@ -10,114 +10,16 @@ NC='\033[0m' # No Color
 
 
 
+echo -e "${blue}installing..${blue}"
 
-setup() {
-	echo -e "${green}--------------"
-	echo "           - installing -"
-	echo "           --------------${NC}"
-
-	sleep 1
-	
-	if ! command -v xmonad >/dev/null; then
-		echo -e "${red}xmonad is not installed on your system would you like to install it (y/n)${NC}"
-	
-                read a
-
-		if [ "$a" == "y" ]; then
-			git clone https://github.com/hexisXz/hexOS-source.git
-			sudo apt install xmonad xmobar && mkdir ~/.xmonad && mv ~/hexOS-source/src/xmonad.hs ~/.xmonad && mkdir ~/.config/xmobar && mv ~/hexOS-source/src/xmobarrc ~/.config/xmobar
-
-		fi
-
-		
-		if [[ "$a" == "n" ]]; then
-			exit 1
-		fi
-	fi
-	
-	
-	
-	if command -v xmonad >/dev/null; then
-		echo -e "${red}this will replace your existing xmonad & xmobar config do you wish to proceed (y/n)${NC}"
-
-		read f
-
-		if [[ "$f" == "y" ]]; then
-                        git clone https://github.com/hexisXz/hexOS-source.git
-                        mkdir ~/.xmonad && mv ~/hexOS-source/src/xmonad.hs ~/.xmonad && mkdir ~/.config/xmobar && mv ~/hexOS-source/src/xmobarrc ~/.config/xmobar 
-                        
-		fi	
-	fi 	
-
-}
+sudo xbps-install -Sy git curl fzf picom alacritty herbstluftwm zsh zsh-syntax-highlighting polybar xwallpaper pipewire emacs
 
 
-
-echo -e "${blue}--------------------------------------"
-echo "          - do you want to install hexOS (y/n) -"
-echo "          --------------------------------------${NC}"
-
-read e
-
-if [[ "$e" == "y" ]]; then
-
-	if [[ "$e" == "n" ]]; then
-		exit 1
-	fi
-		
-	if [[ "$e" == "y" ]]; then
-		setup
-	fi
-fi
+git clone https://github.com/hexisXz/hexOS-repo.git && cd hexOS-repo && mv herbstluftwm ~/.config && mv picom/picom.conf ~/.config && mv polybar/config.ini ~/.config && mv shell/.zshrc ~/ && mkdir ~/.config/alacritty && mv terminal/alacritty.yml ~/.config/alacritty && mv wallpapers ~/.config
 
 
-
-echo -e "${blue}---------------------"
-echo "          - configuring hexOS -"
-echo "          ---------------------${NC}"
-	
-	
-echo -n "${red}this will replace your .bashrc with the hexOS .bashrc you need hexOS .bashrc for hexOS to work do you wish to proceed (y/n)${NC}"
-read -r que
-
-if [[ "$que" == "y" ]]; then
-	sleep 1
-	mv ~/hexOS-source/src/.bashrc ~/
-
-	echo -e "${blue}configuring picom${NC}"
-	mv ~/hexOS-source/src/picom.conf ~/.config/
-
-    fi
-	
-        echo -e "${green}finishing up${NC}"
-        
-   	git clone https://github.com/hexisXz/hexpmg.git && cd hexpmg && chmod +x install && ./install && hexpmg -ilp picom && sudo apt install alacritty 
-
-	echo -e "${blue}configuring alacritty${NC}"
-
-	
-	mkdir ~/.config/alacritty && mv ~/hexOS-source/src//alacritty.yml ~/.config/alacritty
+mkdir ~/.emacs.d ; sh <(curl -v -L https://raw.githubusercontent.com/hexisXz/marlmacs/main/install)
 
 
-	echo -e "${green}------------"
-	echo "           - finished -"
-	echo "           ------------${NC}"
+echo -e "${green}done.${green}"
 
-
-
-
-echo -e "${blue}to install a program just type hexpmg -i <name of program> ${red}note hexpmg is still in beta.${NC}"
-    
-
-
-echo -e "${blue}apt is still installed so you can use that too. ${red}WARNING: hexpmg is not a replacement for apt${NC}. ${blue}hexpmg is only used to install the latest programs from source and it's not used to install every program. and thats all have fun with hexOS${NC}"
-    
-
-
-echo -e "${blue}just logout and loginto xmonad.${NC}"
-
-
-
-if [[ "$que" == "n" ]]; then
-		exit 1
-	fi
