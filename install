@@ -12,10 +12,10 @@ NC='\033[0m' # No Color
 
 echo -e "${blue}installing..${blue}"
 
-sudo xbps-install -Sy git curl fzf picom alacritty herbstluftwm zsh zsh-syntax-highlighting polybar xwallpaper pipewire emacs
+sudo xbps-install -Sy git curl rofi fzf picom alacritty herbstluftwm zsh zsh-syntax-highlighting polybar xwallpaper pipewire emacs
 
 
-git clone https://github.com/hexisXz/hexOS-repo.git && cd hexOS-repo && mv herbstluftwm ~/.config && mv picom/picom.conf ~/.config && mv polybar/config.ini ~/.config && mv shell/.zshrc ~/ && mkdir ~/.config/alacritty && mv terminal/alacritty.yml ~/.config/alacritty && mv wallpapers ~/.config
+git clone https://github.com/hexisXz/hexOS-repo.git && cd hexOS-repo && mv herbstluftwm ~/.config && mv picom/picom.conf ~/.config && mv polybar/config.ini ~/.config && mv shell/.zshrc ~/ && mkdir ~/.config/alacritty && mv terminal/alacritty.yml ~/.config/alacritty && mv wallpapers ~/.config && sudo mv setwall/setwall /bin/
 
 
 mkdir ~/.emacs.d ; sh <(curl -v -L https://raw.githubusercontent.com/hexisXz/marlmacs/main/install)
