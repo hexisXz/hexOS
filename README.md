@@ -1,7 +1,5 @@
 # hexOS
-a window manager driven distro
-
-hexOS is a window manager driven distro.
+hexOS, a window manager driven distro.
 
 ![hexOS](https://github.com/hexisXz/hexOS/assets/71829613/65393468-a42a-4ef5-8b2d-b77e875cb625)
 
